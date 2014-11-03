@@ -12,9 +12,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '!!_0k@a(hegtf%t@dd%w!!-rv(oqno+4#%to@c_wt86bo+(k2&'
@@ -77,8 +75,10 @@ USE_L10N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
+STATIC_PATH = os.path.join(BASE_DIR, 'static')
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)

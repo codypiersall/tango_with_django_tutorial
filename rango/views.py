@@ -7,7 +7,7 @@ def index(request):
 
     # Construct a dictionary to pass to the template engine as its context.
     # Note the key boldmessage is the same as {{ boldmessage }} in the template!
-    context_dict = {'boldmessage': 'I am bod font from the context'}
+    context_dict = {'boldmessage': 'I am bold font from the context'}
 
     # Return a rendered response to send to the client.
     # We make use of the shortcut function to make our lives easier.
@@ -16,4 +16,4 @@ def index(request):
 
 
 def about(request):
-    return HttpResponse('Rango says hey there world!\n<a href="/rango/">back to rango</a>')
+    return render(request, 'rango/about.html', {})

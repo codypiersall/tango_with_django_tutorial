@@ -1,5 +1,4 @@
 import os
-from numpy.distutils.system_info import djbfft_info
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'tango_with_django_project.settings')
 

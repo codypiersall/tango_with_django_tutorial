@@ -17,6 +17,14 @@
         {% else %}
             <strong>There are no categories present.</strong>
         {% endif %}
+        {% if pages %}
+            <h2>Most viewed pages</h2>
+            <ul>
+                {% for page in pages %}
+                <li>{{ page.title }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
         <a href="/rango/about/">About</a>
     </body>
 </html>

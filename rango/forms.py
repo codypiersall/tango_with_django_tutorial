@@ -27,3 +27,13 @@ class PageForm(forms.ModelForm):
         # Here, we are hiding the foreign key.
         # we can either exclude the category field
         exclude = ('category',)
+
+    def clean(self):
+        print('Cleaning')
+        cleaned_data = self.cleaned_data
+        url = cleaned_data.get('url')
+        if url and not url.startswith('http://'):
+            url = 'http://' + url
+            cleaned_data['url'] = url
+
+        return cleaned_data

@@ -29,9 +29,10 @@ class PageForm(forms.ModelForm):
         exclude = ('category',)
 
     def clean(self):
-        print('Cleaning')
-        cleaned_data = self.cleaned_data
+        cleaned_data = super().clean()
         url = cleaned_data.get('url')
+        # TODO: This part doesn't get called because of Javascript.
+        #       Or maybe because of Chrome.  Hard to say hard to say.
         if url and not url.startswith('http://'):
             url = 'http://' + url
             cleaned_data['url'] = url
